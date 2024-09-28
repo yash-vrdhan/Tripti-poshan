@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Attendance Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .radio-container {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .radio-container label {
+            margin-right: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, hsla(199, 98%, 48%, 1) 0%, hsla(196, 83%, 84%, 1) 62%, hsla(121, 77%, 83%, 1) 100%);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #000; /* Blue color for heading */
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #0056b3, #007bff); /* Gradient background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff; /* White color for labels */
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3; /* Darkest shade of blue */
+            color: #fff; /* White color for text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004080; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Meal Attendance Prediction</h1>
+    <div class="flex-container">
+    <form action="/predict" method="post">
+        <label for="dayOfMonth">Day of Month:</label>
+        <input type="text" id="dayOfMonth" name="dayOfMonth" required>
+
+        <label for="timeOfDay">Time of Day:</label>
+        <select id="timeOfDay" name="timeOfDay" required>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select>
+
+        <label for="dayOfWeek">Day of Week:</label>
+        <select id="dayOfWeek" name="dayOfWeek" required>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+
+        <label for="typeOfMeal">Type of Meal:</label>
+        <select id="typeOfMeal" name="typeOfMeal" required>
+            <option value="Poha">Poha</option>
+            <option value="Rajma Chawal">Rajma Chawal</option>
+            <option value="Paneer Butter Masala">Paneer Butter Masala</option>
+            <option value="Dosa">Dosa</option>
+            <option value="Biryani">Biryani</option>
+            <option value="Chole Bhature">Chole Bhature</option>
+        </select>
+        <label>Holiday:</label>
+        <div class="radio-container">
+            
+            <label for="holidayYes">Yes</label>
+            <input type="radio" id="holidayYes" name="isHoliday" value="1" required>
+            <label for="holidayNo">No</label>
+            <input type="radio" id="holidayNo" name="isHoliday" value="0" required>
+        </div>
+
+
+        <input type="submit" value="Predict">     
+    </form>
+</div>
+</body>
+</html>
